@@ -1,16 +1,12 @@
 import './App.css';
 import NavBar from './Components/NavBar'
-import AddBook from './Components/AddBook'
-import BookListItem from './Components/BookListItem';
-import BookList from './Components/BookList';
-import {useEffect, useState} from 'react';
+import Library from './Components/Library'
 
 export default function App() {
   return (
     <div>
       <NavBar/>
-      <AddBook/>
-      <BookList/>
+      <Library/>
     </div>
   );
 }

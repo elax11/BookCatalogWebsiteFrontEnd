@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function AddBook() {
-
+export default function EditBook({book}){
     function handleSubmit(e) {
         // Prevent the browser from reloading the page
         e.preventDefault();
@@ -11,30 +10,33 @@ export default function AddBook() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
-            },
+              },
             body: JSON.stringify(formJson)
-        })
+            })
     }
     return (
         <div className="addBook">
-            <header>Add Book</header>
-            <form method="post" onSubmit={handleSubmit}>
+            <header>Edit book</header>
+            <form method="post" onSubmit={handleSubmit} key={book.id}>
+                <label htmlFor="id">Id</label>
+                <input defaultValue={book.id} type="text" id="mainInput" name="id"/>
+                <hr />
                 <label htmlFor="title">Title</label>
-                <input type="text" id="mainInput" name="title" />
+                <input defaultValue={book.title} type="text" id="mainInput" name="title"/>
                 <hr />
                 <label htmlFor="cover">Cover</label>
-                <input type="text" id="mainInput" name="cover" />
+                <input defaultValue={book.cover} type="text" id="mainInput" name="cover"/>
                 <hr />
                 <label htmlFor="genre">Genre</label>
-                <input type="text" id="mainInput" name="genre" />
+                <input defaultValue={book.genre} type="text" id="mainInput" name="genre"/>
                 <hr />
                 <label htmlFor="author">Author</label>
-                <input type="text" id="mainInput" name="author" />
+                <input defaultValue={book.author} type="text" id="mainInput" name="author"/>
                 <hr />
                 <label htmlFor="content">Content</label>
-                <input type="text" id="mainInput" name="content" />
+                <input defaultValue={book.content} type="text" id="mainInput" name="content"/>
                 <hr />
-                <button type="submit">Add</button>
+                <button type="submit">Save</button>
                 <button type="reset">Clear</button>
             </form>
         </div>
